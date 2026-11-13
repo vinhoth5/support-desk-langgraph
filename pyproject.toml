@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "support-desk-langgraph"
+version = "0.1.0"
+description = "A customer help desk agent built on LangGraph, with a fact-checking guard and human handoff."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Vinhoth D Mohanraj" }]
+requires-python = ">=3.11"
+dependencies = ["langgraph>=1.0", "langchain-core>=1.0"]
+
+[project.optional-dependencies]
+llm = ["langchain>=1.0"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+supportdesk = "supportdesk.__main__:main"
+
+[tool.setuptools]
+packages = ["supportdesk"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
